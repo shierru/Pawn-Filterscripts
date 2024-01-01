@@ -1,0 +1,3 @@
+[submodule "include/omp-stdlib"]
+	path = include/omp-stdlib
+	url = https://github.com/openmultiplayer/omp-stdlib
