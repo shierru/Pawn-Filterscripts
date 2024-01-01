@@ -1,0 +1,11 @@
+# Build Files
+*.amx
+*.pdb
+*.xml
+
+# Executables
+*.exe
+
+# Other Dirs
+compiler/
+server/
