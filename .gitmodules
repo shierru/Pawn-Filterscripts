@@ -4,3 +4,6 @@
 [submodule "include/YSI-Includes"]
 	path = include/YSI-Includes
 	url = https://github.com/pawn-lang/YSI-Includes.git
+[submodule "include/Map-Include"]
+	path = include/Map-Include
+	url = https://github.com/shierru/Map-Include
