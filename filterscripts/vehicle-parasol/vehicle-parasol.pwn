@@ -165,15 +165,6 @@ public OnFilterScriptInit()
 
 public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
-    if(newkeys == KEY_WALK)
-    {
-        new vehicleid = CreateVehicle(411, 0.0, 0.0, 25.0, 0.0, 1, 1, -1);
-
-        new bool:engine, bool:lights, bool:alarm, bool:doors, bool:bonnet, bool:boot, bool:objective;
-        GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
-        SetVehicleParamsEx(vehicleid, true, lights, alarm, doors, bonnet, boot, objective);
-        return true;
-    }
     new PLAYER_STATE:player_state = GetPlayerState(playerid);
 
     if(player_state != PLAYER_STATE_DRIVER)
