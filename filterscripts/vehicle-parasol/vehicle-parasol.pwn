@@ -50,21 +50,11 @@ stock Float:GetVehicleSpeed(const vehicleid)
         Float:velocityY = 0.0, 
         Float:velocityZ = 0.0;
 
-    new Float:velocityPowerX = 0.0,
-        Float:velocityPowerY = 0.0,
-        Float:velocityPowerZ = 0.0,
-        Float:velocityPowerTotal = 0.0;
-
     new Float:velocitySqroot = 0.0;
         
     GetVehicleVelocity(vehicleid, velocityX, velocityY, velocityZ);
-
-    velocityPowerX = floatpower(velocityX, 2.0);
-    velocityPowerY = floatpower(velocityY, 2.0);
-    velocityPowerZ = floatpower(velocityZ, 2.0);
-    velocityPowerTotal = velocityPowerX + velocityPowerY + velocityPowerZ;
     
-    velocitySqroot = floatsqroot(velocityPowerTotal);
+    velocitySqroot = floatsqroot((velocityX * velocityX) + (velocityY * velocityY) + (velocityZ * velocityZ));
 
     return floatround(velocitySqroot * 100);
 }
@@ -175,6 +165,15 @@ public OnFilterScriptInit()
 
 public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
+    if(newkeys == KEY_WALK)
+    {
+        new vehicleid = CreateVehicle(411, 0.0, 0.0, 25.0, 0.0, 1, 1, -1);
+
+        new bool:engine, bool:lights, bool:alarm, bool:doors, bool:bonnet, bool:boot, bool:objective;
+        GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective);
+        SetVehicleParamsEx(vehicleid, true, lights, alarm, doors, bonnet, boot, objective);
+        return true;
+    }
     new PLAYER_STATE:player_state = GetPlayerState(playerid);
 
     if(player_state != PLAYER_STATE_DRIVER)
