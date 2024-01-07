@@ -16,6 +16,7 @@
           "'-i${workspaceRoot}/include'",
           "'-i${workspaceRoot}/include/omp-stdlib'",
           "'-i${workspaceRoot}/include/YSI-Includes'",
+          "'-i${workspaceRoot}/include/Map-Include'",
           "'-o${workspaceRoot}/server/filterscripts/script.amx'",
           "'${relativeFile}'"
         ],
